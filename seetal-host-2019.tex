@@ -1,0 +1,81 @@
+\documentclass[conference,10pt,letterpaper]{IEEEtran}
+%\documentclass[journal,10pt,draftclsnofoot,onecolumn]{IEEEtran}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+%\usepackage[ruled,lined,boxed,commentsnumbered]{algorithm2e}
+%\usepackage{algpseudocode}
+%\usepackage{algorithm}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{amssymb}
+\usepackage{subfigure}		
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\DeclareMathSizes{10}{8}{8}{8}
+\usepackage{color,soul} 
+\usepackage{mathptm}
+%\usepackage{flushend}
+\usepackage{xcolor,pifont}
+\newcommand*\colourcheck[1]{%
+  \expandafter\newcommand\csname #1check\endcsname{\textcolor{#1}{\ding{52}}}%
+}
+\colourcheck{blue}
+\colourcheck{green}
+\colourcheck{red}
+
+\newcommand*\colourx[1]{%
+  \expandafter\newcommand\csname #1x\endcsname{\textcolor{#1}{\ding{54}}}%
+}
+\colourx{red}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{float}
+
+\begin{document}
+
+\title{SAT-attack Resilient Sequential Locking}
+%\author{\IEEEauthorblockN{
+%                    Seetal Potluri,
+%		    Akash Kumar}
+%                    \IEEEauthorblockA{Chair for Processor Design, \\
+%                                      Technical University of Dresden, 01609 Dresden, Germany}}
+    
+
+\maketitle
+\thispagestyle{empty}
+
+\pagestyle{empty}
+
+\begin{abstract}
+SAT-attack is known to decrypt a {\em functionally correct key} of an encrypted combinational circuit. 
+Recently, sequential locking was proposed as a defense to SAT-attack on sequential circuits and subsequently ScanSAT was proposed as an unlocking mechanism for the same. 
+ScanSAT method converts the sequential locking problem to an instance of logic locking problem, and thereby decrypts the entire sequential key using SAT-attack. 
+In this paper, we show that ScanSAT does not guarantee decryption of {\em functionally correct key}, and a defense against ScanSAT.  
+%in the presence of encrypted XOR-chains at combinational outputs. Additionally, we propose a low-overhead defense against ScanSAT, that exploits this property. 
+The proposed defense had $95-100\%$ success rate when tested on sequentialized ISCAS'85 and MCNC benchmarks, across five different encryption schemes, and $1-3$ orders of magnitude increase in decryption time for large circuits. \\
+
+%Firstly, we provide two different output paths for each observe flip-flop: an XOR/XNOR-type encrypted scan path and an unencrypted functional path. 
+%Secondly, we perform XOR/XNOR-type encryption of timing-uncritical combinational outputs, such that they daisy-chain with the encrypted scan chains, to form encrypted XOR/XNOR-chains, making it impossible for the SAT solver to distinguish {\em functionally correct keys} amidst the large equivalence class of {\em scan-mode correct keys}. 
+%We propose a new sequential locking scheme, where the flip-flop has an encrypted scan path and an unencrypted functional path, along with encryption key gates only at the combinational outputs. 
+%In the presence of proposed sequential locking scheme, applying ScanSAT on $20$ benchmark circuits, across five different state-of-the-art logic-encryption schemes, revealed $95-100\%$ success in decrypting a {\em functionally incorrect key}. Additionally, since encryption is only at the boundary, it is area-efficient and functional output quality evaluation can be executed at RTL-level, making it very efficient and feasible for industry practice. 
+%Additionally, the proposed technique incurs minimum timing and energy overheads on the chip's functional mode of operation. 
+\end{abstract}
+
+%\noindent {\bf Keywords: } ; 
+
+\input{introduction}
+\input{attack-model}
+\input{access-model}
+%\input{motivation}
+\input{proposed-sequential-locking}
+\input{results}
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+%\section{Acknowledgement}
+\end{document}
+

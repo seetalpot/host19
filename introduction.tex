@@ -1,0 +1,27 @@
+\section{Introduction}
+\label{sec:introduction}
+\noindent 
+%The fabless fabrication stragies were originally invented by Xilinx co-founder Bernie Vonderschmitt in 1993. 
+%Since then, many companies have adopted them to improve their economies of scale, amidst the growing economic demands of maintaining independent foundry in a scaled technology. 
+Today, fabless model is the most economical and hence the preferred business model of the semiconductor industry. 
+However, IC counterfeiting, piracy and overbuilding in the untrusted offshore foundry have caused major concerns in electronic and defense industries~\cite{pecht06, trimberger07, farinaz:epic}. 
+
+Logic encryption uses a low-overhead combinational chip-locking system, to combat these issues~\cite{farinaz:epic}. 
+Several logic encryption have been proposed so far in literature~\cite{farinaz:epic, jv:dac12, jv:tc15, dupuis:iolts14, baumgarten:dandt10}, and each of them have their own merits and demerits. 
+The SAT-attack~\cite{pramod:host15} is shown to successfully decrypt the logic encryption keys in all above cases, with over $95 \%$ success rate. 
+Recently, sequential locking~\cite{rajit:encryptFF} was proposed as a defense to SAT-attack on sequential circuits. 
+The flip-flop encryption is done in this paper, by inserting an XOR gate right at the output of selected flip-flops. 
+
+A major limitation of this technique is that $58-100\%$ of flip-flops were encrypted, which 
+induces huge are overhead in real designs. Apart from that, the most recently proposed ScanSAT method~\cite{lilas:aspdac19} 
+converts the sequential locking problem to an instance of logic locking problem, and thereby decrypts a {\em functionally correct key} using SAT-attack. 
+Thus, it is imperative to come up with a new sequential locking scheme that is area-efficient, as well as, and more importantly resilient to the SAT-attack. 
+
+In this paper, we propose a sequential locking scheme that addresses the aforementioned challenges. The main contributions of this paper are as follows:
+\begin{enumerate}
+\item We show that ScanSAT does not guarantee decryption of {\em functionally correct key}, in the presence of encrypted XOR-chains at combinational outputs; 
+\item We show there is $100\%$ correlation between failure of ScanSAT and presence of encrypted XOR-chains at combinational outputs; 
+\item Exploiting this property as a defense mechanism, we propose a new low-overhead encrypted scan cell, that consists of an unencrypted functional path and an encrypted scan path; 
+\item Finally, to increase the success rate of successful functional corruption, we propose an iterative combinational key gate pushing algorithm, that makes the sequential circuit resilient to SAT-attack. 
+\end{enumerate}
+
