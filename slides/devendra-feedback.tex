@@ -1,0 +1,13 @@
+\begin{frame}{Devendra's feedback}
+\begin{itemize}
+\item Scan not deactivated, when giving to customer, so that customer can test for quality. There are different agreements; 
+%\item Very difficult to identify positive-edge-triggered flipi-flops from negative-edge-triggered flip-flops unless you know the waveforms; 
+\item Design aspect wise, if you mess up with the design by mixing positive-edge-triggered flip-flops with negative-edge-triggered flip-flops or vice-versa, timing will fail and the design will not work; 
+\item Why people use both types of flip-flops in same design ? for half-cycle time-borrowing
+	\begin{enumerate}
+	\item Memory controllers, when memory need to be sampled at both the edges. E.g., DDR
+	\item TDO in TDR (TAP controller), where the flip-flops are pulsed at negative-edge; and 
+	\item Lock-up latches - negative-level-sensitive ones are used in positive-edge-triggered design.
+	\end{enumerate}
+\end{itemize}
+\end{frame}

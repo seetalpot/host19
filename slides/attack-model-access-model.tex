@@ -1,0 +1,17 @@
+\section{Attack and Access models}
+\begin{frame}{Attack model}
+\begin{itemize}
+\item The encryption key is stored in tamper-proof memory, so not available; 
+\item The attacker has access to layout and mask information from a malicious foundry. The gate-level netlist can be reverse engineered from this;  and 
+\item The attacker has access to an activated IC on which to apply input patterns and observe outputs. This could be obtained by purchasing an activated IC from the open market\footnote{P. Subramanyan et al, "Evaluating the Security of Logic Encryption Algorithms", HOST 2015}. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Access model}
+\begin{itemize}
+\item The attacker applies inputs to the circuit through the DFT architecture; 
+\item In general, the IC vendor keeps test (scan) mode alive even after testing, for the purpose of debugging customer returns \footnote{S. Mitra et al, "Robust system design with built-in soft-error resilience", IEEE Computer, 2005.} \footnote{A. Carbine et al, "Pentium Pro Processor Design for Test and Debug", ITC 1997} (customer returned chips, are debugged for yield learning); 
+\item Another reason why scan is not deactivated, so that customer can apply his test patterns and test for quality themselves. 
+\item Mode of DFT operation for launching SAT-attack: EDT-BYPASS.
+\end{itemize}
+\end{frame}

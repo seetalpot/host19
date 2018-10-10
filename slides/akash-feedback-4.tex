@@ -1,0 +1,51 @@
+\begin{frame}{Akash feedback on 10.09.2018}
+\begin{itemize}
+\item Agreed that the solver currently returns the wrong key, but is it possible to find the correct key ?
+\item Are there multiple keys that the solver is able to return (equivalence class) ?
+\item Among them, is it possible to have a correct key ?
+\item Complexity analysis for idenfifying all keys within the equivalence class; even a theoretical estimate is fine. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Next steps}
+	\begin{itemize}
+		\item Read Subramanyan's paper on the concept of equivalence classes for combinational locking
+		\item Try to \alert{extend} the same concept to sequential locking
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Definitions in SAT-attack paper}
+	\begin{itemize}
+		\item Two keys $\vec{K_1}$ and $\vec{K_2}$, are equivalent, denoted as $\vec{K_1} \equiv \vec{K_2}$, iff for each input value $\vec{X_i}$, the encrypted circuit produces the same output $\vec{Y_i}$, for both keys $\vec{K_1}$ and $\vec{K_2}$. Precisely stated: $K_1 \equiv K_2$ iff $\forall X_i$: $C(\vec{X_i}, \vec{K_1}, \vec{Y_i}) \wedge C(\vec{X_i}, \vec{K_2}, \vec{Y_i})$
+		\item Given two key values, $K_1$ and $K_2$, define the input pattern $\vec{X^d}$ as a distinguishing input pattern if the encrypted circuit outputs different values $\vec{Y_1^d}$ and $\vec{Y_2^d}$ when the key inputs are set to $\vec{K_1}$ and $\vec{K_2}$ respectively. More precisely, $\vec{X^d}$ is a distinguishing input pattern for $K_1$ and $K_2$ iff $C(\vec{X^d}, \vec{K_1}, \vec{Y_1^d}) \wedge C(\vec{X^d}, \vec{K_2}, \vec{Y_2^d})$. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Limitations of SAT-attack paper}
+	\begin{itemize}
+		\item In section IV.A, they mention, "\texttt{c6288} is a multiplier, and multiplers are challenging for SAT solvers in all contexts, not just logic encryption".
+		\item The paper suggests that Algorithm 1 ends, when it finds two keys, $\vec{K_1}$ and $\vec{K_2}$:
+			\begin{itemize}
+				\item which are equivalent; and
+				\item which satisfy input/output observations for distinguishing input patterns so far, on an activated IC. 
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Limitations of SAT-attack paper}
+\begin{itemize}
+		\item The paper says loop in Algorithm 1 ends, when no distinguishing inputs can be found. What does this mean ? Does the algorithm look for distinguishing inputs among all possible input combinations ($2^M$ in a circuit with $M$ inputs) ? 
+		\item If that is the case, it is exponential anyway. 
+		\item Even if this is true, I am still unsure if this is sufficient justification to conclude that $\vec{K_1}$ and $\vec{K_2}$ belong to equivalence class of correct keys. It could very well belong to the equivalence class of wrong keys, but satisfying the input/output observations so far on an activated IC. 
+		\item I also did not understand how each iteration of the while loop rules out at least one incorrect equivalence class. All we can say is that we will never again choose two keys that belong to the equivalence class pairs visited before. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Possible next step for combinational locking}
+	\begin{itemize}
+		\item What kind of positioning of key gates within the logic circuit, produces equivalence classes ?
+		\item If that is known, place the key gates differently, so that sizes of equivalence classes is minimized, and thereby the number of equivalence classes is maximized. 
+		\item This will increase the time it takes to decrypt using SAT-attack, thus making it hard.
+		\item In the trivial case, check if it is possible to place the key gates in such a way that the size of all equivalence classes is exactly 1. This is similar to the AND-tree inside \texttt{c2670} mentioned in the SAT-attack paper, where each key assignment is a {\it singleton equivalence class.}. Here, the SAT-attack tries to eliminate a wrong key in each iteration of while loop, thus ends doing brute-force search of keys. Clearly this is intractable. 
+	\end{itemize}
+\end{frame}

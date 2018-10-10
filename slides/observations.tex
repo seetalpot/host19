@@ -1,0 +1,23 @@
+\begin{frame}{Observations}
+\begin{itemize}
+%\item Scan-cell encryption resilience depends on the position of the encrypted scan-cell in the scan-chain
+\item Let $n=|SC|$
+\item Encrypting $i^{th}$ scan-cell in the scan-chain, contributes $i$ XOR gates along scan-out path and $n-i+1$ XOR gates along scan-in path, to $G_U$
+\item $(i) + (n-i+1) = n + 1$. So, encrypting any scan-cell in the scan-chain (independent of the position), contributes $n+1$ XOR gates to $G_U$. 
+\item Encrypting all scan-cells contributes to $n(n+1)$ XOR gates to $G_U$. 
+%\item This is the reason encrypting second half of scan-chain is more effective than encrypting first half of scan-chain
+%\item Encrypting scan cells towards end of the chain has multiple benefits
+%	\begin{enumerate}
+%		\item Since these scan cells are towards the end, they add maximum number of XOR gates to $G_U$, hence adds maximum resilience
+%		\item Since these scan cells are towards the end, routing the encryption key bits to them incurs less ovehead
+%	\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Observations}
+\begin{itemize}
+\item Resilience against SAT-attack improves with size of scan-chain
+\item For e.g:. if an SoC has {\em 1 million} scan-cells, in EDT-BYPASS mode, all of them form a single-chain. So, just encrypting any one scan cell in the chain will add $\approx ${\em 1 million} XOR gates to the SAT instance, which 
+	makes the proposed technique very effective, with minimum overhead. 
+\end{itemize}
+\end{frame}

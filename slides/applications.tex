@@ -1,0 +1,25 @@
+\begin{frame}{Applications in ASIC}
+	\begin{itemize}
+		\item Design re-use
+			\begin{itemize}
+			\item By induction, one can prove that n-input NOR/OR/XOR/AOI/AO gate can be reused as n-input NAND/AND/XNOR/OAI/OA gate respectively and vice-versa
+			\item hardware simplification and hence some logic instructions can be removed from existing RISC instruction set
+			\end{itemize}
+		\item Time borrowing
+			\begin{itemize}
+				\item latches: a positive-level sensitive latch can be converted to negative-level sensitive latch and vice-versa
+				\item flip-flops: a positive-edge-triggered flip-flop can be converted to negative-edge-triggered flip-flop and vice-versa. 
+			\end{itemize}
+		%\item Testing: LFSR reconfiguration, to generate extra patterns to improve coverage
+		%\item Security: Logic encryption 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Applications in FPGA}
+	\begin{itemize}
+		\item A multiplexer (1-LUT) with Boolean function $f(S) = \overline{S}A + SB$, after reconfiguration, transforms to a multiplexer with inputs swapped i.e., $f^R(S) = f(\overline{S}) = SA + \overline{S}B$; 
+		\item For an n-LUT, if original function was $f(I_0, I_1, \ldots I_{n-1})$, after reconfiguration, it transforms to $f^R(I_0, I_1, \ldots I_{n-1}) = f(\overline{I_0}, \overline{I_1}, \ldots \overline{I_{n-1}})$.
+		\item In binary arithmetic, it becomes 1's complement of original input. So, an adder implementation can be reused as subtractor. 
+	\end{itemize}
+\end{frame}
+

@@ -1,0 +1,13 @@
+\begin{frame}{Algorithm 1: Computing lower bound using Dynamic Programming}
+
+\begin{itemize}
+
+\item Let $T_{i,j}$, where $i \le j$ denote the number of intervals whose starting time is $\ge i$ and whose ending time is $\le j$ \;
+
+\item If $i > j$, assign $T_{i,j}=0$, else \\
+      $T_{i,j} = T_{i,j-1} + T_{i+1,j} - T_{i+1,j-1}$ $+$ Number of intervals whose starting time is equal to $i$ and ending time is 
+      equal to $j$ \;
+\item Lower bound $LB = max{\lceil \frac{T_{i,j}}{j-i+1}\rceil}, 1 \le i \le j \le max\_color $.
+\end{itemize}
+
+\end{frame}

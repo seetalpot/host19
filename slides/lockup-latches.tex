@@ -1,0 +1,8 @@
+\begin{frame}{Lockup Latch Encryption}
+\begin{itemize}
+\item During physical synthesis, negative-level-sensitive lock-up latches are inserted at points in the positive-edge-triggered scan chain, where there are hold-timing-violations; 
+\item It is possible to design an encrypted lock-up latch, that functions as positive- or negative-level sensitive, depending on the encryption key bit controlling it; 
+\item Insert dummy lock-up latches along with the existing lock-up latches in the scan chain; and 
+\item Encrypt all of them and encryption key comes from tamper-proof memory, and the attacker will not know which of them are original and which are dummy, since he cannot perform post-physical-synthesis STA, which is expensive. 
+\end{itemize}
+\end{frame}

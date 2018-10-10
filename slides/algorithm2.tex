@@ -1,0 +1,17 @@
+
+\begin{frame}{Algorithm 2: Color assignment}
+\begin{itemize}
+\item Sort the intervals in $S$ based on starting time.
+\item Let $H$ be a {\em min heap} of $S$ based on ending time of the intervals.
+\end{itemize}
+
+\begin{block}{}
+{\bf for} i $=$ 1$\rightarrow$ n\\
+\begin{itemize}
+\item Insert into heap $H$ all intervals whose starting time is equal to $i$
+\item Remove top $l$ elements from heap and assign color $c_i$, \\
+where $l=min(current\ heap\ size,\ LB)$ \\
+\end{itemize}
+\noindent {\bf end}
+\end{block}
+\end{frame}

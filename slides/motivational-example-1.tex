@@ -1,0 +1,26 @@
+\begin{frame}{Motivational example on SK routing}
+\begin{itemize}
+\item \texttt{ibm04} benchmark, die size including pins is 2612x2340; excluding pins is 2602x2321
+\item a27189 cell is located at (1810,1121) after detailed placement of ibm04
+\item \texttt{ibm04-encrypt} : a27189 cell encrypted using p288 terminal
+\item After detailed placement of this encrypted circuit - die size including pins is 2612x2340 (same); excluding pins is 2603x2321
+\item So, there is little/no impact for encrypting just one cell. Reason: there is already some spare routing space available
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Brainstorming}
+\begin{itemize}
+	\item \alert{Combinational logic encryption - check if somebody has done analysis on routing overhead}
+	\begin{enumerate}
+		\item How does routing overhead increase with increase in key length ?
+		\item Tradeoff between security and routing overhead ?
+		\item \texttt{IBM} benchmarks and {\em mPL} can be used for evaluation, setup is ready 
+	\end{enumerate}
+\item DFT encryption 
+	\begin{enumerate}
+		\item How does routing overhead increase with increase in key length ?
+		\item Tradeoff between security and routing overhead ?
+	\end{enumerate}
+\end{itemize}
+\end{frame}
+

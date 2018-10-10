@@ -1,0 +1,11 @@
+\begin{frame}{Scan-encryption Key routing overhead (proposed experiments)}
+\begin{itemize}
+\item mPL placer \footnote{mPL - A Multilevel Global Placement Tool, URL: http://cadlab.cs.ucla.edu/cpmo/}, takes an initial placement as input and produces a legalized placement as output
+\item \alert{Plan}: As already defined, $C$ and $C^{'}$ denote the scan-unencrypted and scan-encrypted netlists respectively, and $SK$ is the scan-encryption key 
+\begin{enumerate}
+\item run mPL and find placement $P(C)$
+\item run mPL and find placement $P(C^{'})$, using $P(C)$ as initial solution
+\item Quantify area overhead based on the difference in total area (bounding box) occupied by $P(C^{'})$ and $P(C)$
+\end{enumerate}
+\end{itemize}
+\end{frame}
